@@ -3,8 +3,6 @@ import { config } from "dotenv";
 
 const validator = z.object({
     PORT: z.coerce.number(),
-    JWT_ACCESS_TOKEN: z.string(),
-    JWT_REFRESH_TOKEN: z.string(),
     MONGO_DB_URI: z.string()
 })
 

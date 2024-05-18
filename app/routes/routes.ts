@@ -8,7 +8,7 @@ export const registerMiddlewares = (app: Application) => {
     app.use(cors())
 
     for (let route of routes) {
-        // app.use(route.path, route.router)
+        app.use("/api/v1"+route.path, route.router)
     }
 
     // error handler middlware
@@ -18,6 +18,4 @@ export const registerMiddlewares = (app: Application) => {
         )
     })
 }
-
-
 

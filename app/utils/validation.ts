@@ -7,6 +7,7 @@ const validator =
 			try {
 				if (passthrough) {
 					req[source] = schema.passthrough().parse(req[source])
+
 				} else {
 					req[source] = schema.parse(req[source]);
 				}
@@ -17,6 +18,6 @@ const validator =
 		};
 	}
 
-export const body = <T extends ZodRawShape>(schema: ZodObject<T>, passthrough: boolean = false) => validator("body", schema);
-export const params = <T extends ZodRawShape>(schema: ZodObject<T>, passthrough: boolean = false) => validator("params", schema);
-export const query = <T extends ZodRawShape>(schema: ZodObject<T>, passthrough: boolean = false) => validator("query", schema);
+export const body = <T extends ZodRawShape>(schema: ZodObject<T>, passthrough: boolean = false) => validator("body", schema, passthrough);
+export const params = <T extends ZodRawShape>(schema: ZodObject<T>, passthrough: boolean = false) => validator("params", schema, passthrough);
+export const query = <T extends ZodRawShape>(schema: ZodObject<T>, passthrough: boolean = false) => validator("query", schema, passthrough);
